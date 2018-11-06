@@ -131,9 +131,10 @@ namespace WinDocker.UI
             });
 
             this.DataContext = this;
-
-            this.Width = (DockItems.Count + 1) * 55;
-            this.Left = (System.Windows.SystemParameters.PrimaryScreenWidth / 2) - (this.Width / 2);
+            // Automatically resize width relative to content
+            this.SizeToContent = SizeToContent.Width;
+            //this.Width = (DockItems.Count + 1) * 55;
+            this.Left = (System.Windows.SystemParameters.PrimaryScreenWidth / 2) - (Convert.ToInt32( this.SizeToContent) / 2);
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -269,11 +270,11 @@ namespace WinDocker.UI
                 Label = "InDesign"
             });
 
-            dockItems.Add(new DockItem()
-            {
-                Icon = ToImageSourceWithMemoryStream(GetIconFromFile(@"C:\Users\erkan\Downloads\imusic-win_setup_full2400.exe").Icon),
-                Label = "IMusic"
-            });
+            //dockItems.Add(new DockItem()
+            //{
+            //    Icon = ToImageSourceWithMemoryStream(GetIconFromFile(@"C:\Users\erkan\Downloads\imusic-win_setup_full2400.exe").Icon),
+            //    Label = "IMusic"
+            //});
 
             dockItems.Add(new DockItem()
             {
